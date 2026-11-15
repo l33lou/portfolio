@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leelou's Portfolio</title>
+  <link rel="icon" type="image/png" href="images/L.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <main>
+
+    <!-- Présentation avec disposition artistique/aléatoire + iPod intégré -->
+    <section class="hero-screen">
+      <div class="section-header artistic-layout">
+        
+        <!-- Images décoratives dispersées -->
+        <img src="images/bass.png" alt="Bass" class="scatter-img img-1">
+        <img src="images/cd.png" alt="CD" class="scatter-img img-2">
+        <img src="images/purple-flower.png" alt="Flower" class="scatter-img img-3">
+        <img src="images/ribbon.png" alt="Ribbon" class="scatter-img img-4">
+        <img src="images/concert-radiohead.jpg" alt="Radiohead" class="scatter-img img-5">
+        <img src="images/silver-star.png" alt="Pink Floyd" class="scatter-img img-6">
+        
+        <img src="images/pick.png" alt="Pick" class="scatter-img img-9">
+        <img src="images/metal-star.png" alt="Metal Star" class="scatter-img img-8">
+        <img src="images/sewing.png" alt="Sewing" class="scatter-img img-7">
+        <img src="images/concert-cure.png" alt="Cure" class="scatter-img img-10">
+        <img src="images/concert-led-zep.png" alt="Led Zep" class="scatter-img img-11">
+        <img src="images/deftones.png" alt="Deftones" class="scatter-img img-12">
+        <img src="images/cat.png" alt="Cat" class="scatter-img img-13">
+
+        <!-- Conteneur principal en deux colonnes (2/3 - 1/3) -->
+        <div class="hero-split-container">
+          
+          <!-- Colonne de gauche (2/3) : Titre et description -->
+          <div class="hero-main-column">
+            <h1>Leelou</h1>
+            <p>a 20 years old engineering student cherishing her artistic side</p>
+          </div>
+
+          <!-- Colonne de droite (1/3) : L'iPod interactif -->
+          <div class="hero-ipod-column">
+            <div class="ipod-wrapper">
+              <img src="images/ipod.png" alt="iPod" class="ipod-img">
+
+              <div class="ipod-screen">
+                <div class="ipod-now-playing">
+                  <span id="ipod-track-title">Select a track</span>
+                </div>
+                
+                <ul class="ipod-playlist">
+                  <li class="ipod-track-item" data-src="audios/bass.mp4">
+                    <span>bass demo slap</span>
+                  </li>
+                  <li class="ipod-track-item" data-src="audios/bass2.mp4">
+                    <span>bass demo fingerstyle</span>
+                  </li>
+                  <li class="ipod-track-item" data-src="audios/flute.mp4">
+                    <span>flute demo</span>
+                  </li>
+                </ul>
+
+                <audio id="ipod-audio-player"></audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-lace-divider"></div>
+
+    <section class="timeline-screen">
+      <div class="timeline-container">
+        
+        <!-- En-tête de la timeline -->
+        <div class="music-timeline-header">
+          <div class="timeline-text-content">
+            <h2>Musical timeline</h2>
+          </div>
+        </div>
+
+        <!-- Guirlande de photos en ligne avec défilement -->
+        <div class="polaroid-gallery">
+          
+          <!-- Élément 1 -->
+          <div class="polaroid-card">
+            <img src="images/black-tape2.png" alt="Pin" class="pin">
+            <img src="music/orchestre-adagio.jpeg" alt="Orchestre Adagio" class="music-img">
+            <div class="polaroid-caption">
+              <span class="photo-date">2011-2021</span>
+              <p class="photo-desc">learnt music theory and the flute, first experience in orchestra</p>
+            </div>
+          </div>
+
+          <!-- Élément 2 -->
+          <div class="polaroid-card">
+            <img src="images/purple-tape.png" alt="Pin" class="pin">
+            <video src="music/audition_FC2.mp4" autoplay muted loop playsinline class="music-img"></video>
+            <div class="polaroid-caption">
+              <span class="photo-date">2021</span>
+              <p class="photo-desc">obtained my Fin de Cycle 2, view music sheet <a href="music/conducteur-medley.pdf" target="_blank">here</a></p>
+            </div>
+          </div>
+
+          <!-- Élément 3 -->
+          <div class="polaroid-card">
+            <img src="images/pink-tape.png" alt="Pin" class="pin">
+            <video src="music/été-français.mp4" autoplay muted loop playsinline class="music-img"></video>
+            <div class="polaroid-caption">
+              <span class="photo-date">2018-2020</span>
+              <p class="photo-desc">joined my first band called "WindLights"</p>
+            </div>
+          </div>
+
+          <!-- Élément 4 -->
+          <div class="polaroid-card">
+            <img src="images/black-tape2.png" alt="Pin" class="pin">
+            <video src="music/in-the-name-of-love.mp4" autoplay muted loop playsinline class="music-img"></video>
+            <div class="polaroid-caption">
+              <span class="photo-date">2020-2023</span>
+              <p class="photo-desc">then learned how to play bass for the band</p>
+            </div>
+          </div>
+
+          <!-- Élément 5 -->
+          <div class="polaroid-card">
+            <img src="images/purple-tape.png" alt="Pin" class="pin">
+            <img src="music/studying.jpeg" alt="Studying" class="music-img">
+            <div class="polaroid-caption">
+              <span class="photo-date">2023-2025</span>
+              <p class="photo-desc">paused practicing for "la prépa", listened to 50k mins of music</p>
+            </div>
+          </div>
+
+          <!-- Élément 6 -->
+          <div class="polaroid-card">
+            <img src="images/pink-tape.png" alt="Pin" class="pin">
+            <img src="music/DSC00033.JPG" alt="Concert" class="music-img">
+            <div class="polaroid-caption">
+              <span class="photo-date">2025-2026</span>
+              <p class="photo-desc">joined "Plebotomy" at CentraleSupélec and played concerts!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-studs-divider"></div>
+
+    <section class="projects-screen">
+      <div class="split-projects-container">
+
+        <!-- Colonne de gauche : Intérêts et collage artistique -->
+        <div class="projects-artistic-column">
+          <h2>Other projects and interests</h2>
+          <p class="interests-text">drawing, fashion, concerts, sewing, reading, writing poetry, developing...</p>
+          
+          <div class="scrapbook-collage">
+            <img src="images/collage.jpg" alt="collage" class="scrap-img img-collage">
+            <img src="images/pants.jpeg" alt="pants" class="scrap-img img-pants">
+            <img src="images/drawing.jpg" alt="drawing" class="scrap-img img-drawing">
+            <img src="images/painting-sweater (1) (1).jpeg" alt="painting-sweater" class="scrap-img img-sweater">
+            <img src="images/boitier-monté.jpeg" alt="boitier-monté" class="scrap-img img-pedal">
+            <a href="https://kinepolics.pages.dev/" target="_blank" class="k-website-link">KinepoliCS website</a>
+            <a href="https://csart.pages.dev/" target="_blank" class="c-website-link">CSart website</a>
+          </div>
+        </div>
+
+        <!-- Colonne de droite : Post-it GitHub avec le texte SUR l'image -->
+        <div class="projects-contact-column">
+          <div class="postit-container">
+            <img src="images/post-it.png" alt="post-it" class="contact-img">
+            <div class="postit-content">
+              <p class="contact-text">see my GitHub profile to explore the technical side of my projects</p>
+              <a href="https://github.com/l33lou" target="_blank" class="github-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

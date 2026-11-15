@@ -1,0 +1,658 @@
+/* ==========================================================================
+   PALETTE
+   ========================================================================== */
+
+:root {
+  --backinblack: #16131F;
+  --mountainheather: #f0d9e4;
+  --decanting: #C1A0AC;
+  --funkiefriday: #4A3F4B;
+  --moonscape: #806C79;
+
+  --font-title: 'Nemo', serif;
+  --font-subtitle: 'indigo', serif;
+  --font-body: 'IM Fell English', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------------
+   CURSEUR PERSONNALISÉ ACCENT-ROSE (#AF7D86)
+   ------------------------------------------------------------------------ */
+
+/* Curseur principal par défaut */
+body, html {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23AF7D86'%3E%3Cpath d='M4.5 3.5L18 12l-6.5 2-2 6.5z' stroke='%2324132C' stroke-width='1'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Main de pointeur rose au survol */
+a, button, input, select, .btn, .filter-btn, .modal-close, .eq-card {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23AF7D86'%3E%3Cpath d='M9 11.24V7.5a1.5 1.5 0 0 1 3 0v3.74c.22-.15.48-.24.76-.24 1.11 0 1.5.89 1.5 2v.26c.22-.15.48-.26.76-.26 1.11 0 1.5.89 1.5 2V16.5c0 3.04-2.46 5.5-5.52 5.5H10.5C7.46 22 5 19.54 5 16.5v-3.8c0-.6.4-1.1 1-1.2.65-.11 1.25.26 1.45.87l1.55 4.63V11.24z' stroke='%2324132C' stroke-width='0.8'/%3E%3C/svg%3E") 6 0, pointer !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--moonscape);
+  /* background-image: 
+    radial-gradient(circle at 50% 20%, rgba(114, 61, 81, 0.3) 30%, rgba(36, 19, 44, 0.3) 60%),
+    url('images/velvet.jpg');
+  background-repeat: repeat;
+  background-size: 1600px 800px; /* Évite un grain trop gros */
+  /* background-attachment: fixed;
+  background-blend-mode: overlay; */
+  color: var(--decanting);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+/* 1. Déclaration de votre police locale .ttf */
+@font-face {
+  font-family: 'Nemo';
+  src: url('./fonts/Nemo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'indigo';
+  src: url('./fonts/Indigo_PersonalUse.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 5px;
+}
+
+
+/* Typographie */
+h1, h2 {
+  font-family: var(--font-title);
+  color: var(--mountainheather);
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+h3, h4 {
+  font-family: var(--font-subtitle);
+  color: var(--funkiefriday);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+h1 { font-size: 20rem; line-height: 1.1; }
+h2 { font-size: 2.8rem; margin-bottom: 0.5rem; text-align: center; }
+h3 { font-size: 1.8rem; }
+
+a {
+  font-family: var(--font-body);
+  color: var(--funkiefriday);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   SECTION HERO : DISPOSITION 2/3 - 1/3 AVEC L'IPOD À DROITE
+   ========================================================================== */
+
+.hero-split-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 90vh;
+  max-width: 1600px; /* Augmenté pour donner plus d'amplitude sur les côtés */
+  display: flex;
+  justify-content: space-between; /* Éloigne les deux colonnes au maximum */
+  align-items: center;
+  gap: 2rem;
+  padding: 0 4rem; /* Ajoute de l'air sur les bords gauche et droit de l'écran */
+}
+
+/* Colonne de gauche (texte + collage artistique) */
+.hero-main-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligne le contenu vers la gauche */
+  text-align: left;        /* Aligne le texte à gauche */
+}
+
+.section-header.artistic-layout {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%; 
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images éparpillées façon scrapbooking */
+.scatter-img {
+  position: absolute;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+  z-index: 2;
+}
+
+.scatter-img:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 5;
+}
+
+/* --- Positionnement et rotation aléatoires de chaque image --- */
+.img-1  { top: 8%;   right: 95%;   width: 140px; transform: rotate(-60deg); }
+.img-2  { top: 50%;  left: 0%;  width: 50px;  transform: rotate(15deg); }
+.img-3  { top: 20%;  left: 12%;  width: 70px;  transform: rotate(-25deg); }
+.img-4  { top: 35%;  right: 100%;   width: 190px; transform: rotate(8deg); }
+.img-5  { top: 10%;  left: 25%;  width: 130px; transform: rotate(5deg); }
+.img-6  { top: 60%;  right: 100%;  width: 120px; transform: rotate(-10deg); }
+
+.img-7  { top: 0%;   right: 0%; width: 200px; transform: rotate(10deg); }
+.img-8  { top: 55%;  left: 100%;  width: 95px;  transform: rotate(-15deg); }
+.img-9  { top: 20%;  right: 24%; width: 75px;  transform: rotate(14deg); }
+.img-10 { top: 75%;  right: 25%; width: 130px; transform: rotate(-6deg); }
+.img-11 { top: 12%;  right: 36%; width: 125px; transform: rotate(-18deg); }
+.img-12 { top: 20%;  right: 50%; width: 125px; transform: rotate(-18deg); }
+.img-13 { top: 25%;  left: 95%;  width: 85px;  transform: rotate(5deg); }
+
+/* Colonne de droite (iPod) */
+.hero-ipod-column {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Pousse l'iPod vers l'extrême droite */
+  align-items: center;
+  padding-right: -25rem;       /* Ajuste cet espacement pour le décaler du bord droit si besoin */
+}
+
+/* Ajustement de la taille de l'iPod pour s'intégrer harmonieusement à droite */
+.hero-ipod-column .ipod-wrapper {
+  position: relative;
+  width: 300px; 
+  margin: 0;
+}
+
+/* Style de l'iPod interactif */
+.ipod-wrapper {
+  position: relative;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.ipod-img {
+  width: 100%;
+  right: 0;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+  z-index: 2;
+  position: relative;
+  pointer-events: none;
+}
+
+.ipod-screen {
+  position: absolute;
+  top: 13%;
+  left:23%;
+  width: 55%;
+  height: 32%;
+  background: #111;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
+  color: #fff;
+  font-family: monospace;
+}
+
+.ipod-now-playing {
+  font-size: 0.8rem;
+  color: #d287c8;
+  border-bottom: 1px solid #333;
+  padding-bottom: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ipod-playlist {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  overflow-y: auto;
+  max-height: 80px;
+}
+
+.ipod-track-item {
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ipod-track-item:hover,
+.ipod-track-item.active {
+  background: #d668c293;
+  color: #fff;
+}
+
+/* ==========================================================================
+   Lace divider
+   ========================================================================== */
+
+.section-lace-divider {
+  width: 100vw;
+  background-image: url('./images/lace3.png');
+  background-repeat: repeat-x; /* Repeats horizontally across the screen */
+  background-position: center;
+  background-size: auto 100%; /* Keeps original height, repeats horizontally */
+  /* If your image has a specific height, you can also set it explicitly: */
+  height: 40px;
+}
+
+/* ==========================================================================
+   DEUXIÈME SECTION : TIMELINE (1920x1080)
+   ========================================================================== */
+.timeline-screen {
+  width: 1920px;   /* Largeur fixe pour affichage 1920x1080 */
+  max-width: 100%; /* Empêche les débordements horizontaux */
+  min-height: 80vh;
+  background: url('images/metal-swirls-r.jpg') center/cover no-repeat;
+  background-color: var(--backinblack);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3rem 2rem;
+  overflow-y: auto; /* Permet de faire défiler les polaroïds si l'espace 1080px est serré */
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+.timeline-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.music-timeline-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 4rem; /* Aligned with .hero-split-container padding (under the 'L' of Leelou) */
+  margin-top: -65px; /* Overlaps the lace divider above */
+}
+
+.timeline-text-content {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: url('images/title-paint.png') center/ 80% 130% no-repeat;
+  padding: 3.5rem 4rem;
+  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.4));
+  z-index: 9;
+}
+
+.timeline-text-content h2 {
+  margin: 0;
+  text-align: center;
+  color: var(--funkiefriday);
+  font-size: 2.8rem;
+}
+
+/* Conteneur de la galerie en ligne avec scroll horizontal */
+.polaroid-gallery {
+  display: flex;
+  flex-wrap: nowrap;          /* Empêche les cartes de passer à la ligne */
+  gap: 3rem;                  /* Espace entre les polaroïds */
+  width: 100%;
+  max-width: 1300px;
+  overflow-x: auto;           /* Active le défilement horizontal par l'utilisateur */
+  overflow-y: hidden;
+  padding: 1rem 1rem 7rem 1rem; /* Espace pour l'ombre portée et le scroll */
+  scroll-behavior: smooth;    /* Défilement fluide */
+}
+
+/* Personnalisation de la barre de défilement (esthétique) */
+.polaroid-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.polaroid-gallery::-webkit-scrollbar-track {
+  background: rgba(22, 19, 31, 0.4);
+  border-radius: 4px;
+}
+
+.polaroid-gallery::-webkit-scrollbar-thumb {
+  background: var(--decanting);
+  border-radius: 4px;
+}
+
+.polaroid-gallery::-webkit-scrollbar-thumb:hover {
+  background: var(--mountainheather);
+}
+
+/* Empêche les cartes de se réduire dans le conteneur flexible */
+.polaroid-card {
+  flex: 0 0 240px;            /* Taille fixe de 240px par carte, pas de rétrécissement */
+  position: relative;
+  background: #e6dad0;
+  padding: 12px 12px 35px 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+/* ==========================================================================
+   CACHER LA BARRE DE DÉFILEMENT (SCROLLBAR)
+   ========================================================================== */
+
+/* Pour les navigateurs Firefox */
+html {
+  scrollbar-width: none; 
+}
+
+/* Pour les navigateurs Chrome, Safari et Edge */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Effet penché aléatoire pour faire naturel et artistique */
+.polaroid-card:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.polaroid-card:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.polaroid-card:nth-child(5) {
+  transform: rotate(2deg);
+}
+
+.polaroid-card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+/* L'épingle en PNG en haut au centre de la photo */
+.pin {
+  position: absolute;
+  top: -13px;       /* Ajuste cette valeur si tu veux qu'elle soit plus ou moins enfoncée */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;      /* Ajuste la taille de ton épingle selon tes besoins */
+  height: auto;     /* Conserve les proportions de ton PNG */
+  object-fit: contain;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.4)); /* Ombre portée réaliste */
+  z-index: 5;
+}
+
+/* L'image dans la carte */
+.polaroid-card .music-img,
+.polaroid-card video {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Légende sous la photo (Date et Description) */
+.polaroid-caption {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--funkiefriday); /* Texte sombre pour contraster avec le fond papier */
+  font-family: var(--font-body);
+}
+
+.photo-date {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #723D51;
+  margin-bottom: 2px;
+  font-family: var(--font-subtitle);
+}
+
+.photo-desc {
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   divider
+   ========================================================================== */
+
+.section-studs-divider {
+  width: 100vw;
+  background-image: url('./images/paper.png');
+  background-repeat: repeat-x; /* Repeats horizontally across the screen */
+  background-position: center;
+  background-size: auto 100%; /* Keeps original height, repeats horizontally */
+  /* If your image has a specific height, you can also set it explicitly: */
+  height: 40px;
+}
+
+/* ==========================================================================
+   PROJECTS SECTION (2 COLUMNS)
+   ========================================================================== */
+
+
+.projects-screen {
+  width: 100vw;
+  min-height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background-color: var(--moonscape);
+}
+
+.split-projects-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+/* Colonnes transparentes sans blocs rigides */
+.projects-artistic-column, 
+.projects-contact-column {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-artistic-column h2 {
+  font-size: 2.5rem;
+  color: var(--mountainheather);
+  margin-bottom: 0.5rem;
+}
+
+.interests-text {
+  color: var(--decanting);
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+/* --- COLLAGE ARTISTIQUE Façon Scrapbook --- */
+/* Slightly increase collage height to give the buttons room at the bottom */
+.scrapbook-collage {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 390px;
+}
+
+/* Shared cute button styling matching your GitHub button */
+.k-website-link,
+.c-website-link {
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
+  display: inline-block;
+  background: var(--backinblack);
+  color: var(--mountainheather);
+  padding: 0.55rem 1.3rem;
+  border-radius: 20px; /* Soft pill shape for a cuter look */
+  border: 1px solid var(--decanting);
+  text-decoration: none;
+  font-family: var(--font-subtitle);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease;
+}
+
+/* Individual placement & playful scrapbook tilt */
+.k-website-link {
+  right: 100%;
+  transform: rotate(-3deg);
+  bottom: 240px;
+}
+
+.c-website-link {
+  left: 90%;
+  transform: rotate(3deg);
+  bottom: 100px;
+}
+
+/* Hover effect: straightens out, lifts up, and shifts to dusty rose */
+.k-website-link:hover,
+.c-website-link:hover {
+  background: #723D51;
+  color: #fff;
+  border-color: var(--mountainheather);
+  transform: scale(1.06) rotate(0deg) translateY(-3px);
+  z-index: 12;
+}
+
+.scrap-img {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, z-index 0.3s ease;
+}
+
+.scrap-img:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 10;
+}
+
+/* Positions et rotations aléatoires des images du collage */
+.img-collage { top: 0; left: 10%; width: 160px; transform: rotate(-8deg); z-index: 2; }
+.img-pants   { top: 40px; right: 10%; width: 140px; transform: rotate(12deg); z-index: 1; }
+.img-drawing { bottom: 10px; left: 20%; width: 130px; transform: rotate(5deg); z-index: 3; }
+.img-sweater { bottom: 0; right: 15%; width: 150px; transform: rotate(-10deg); z-index: 2; }
+.img-pedal   { bottom: 15px; right: 92%; width: 150px; transform: rotate(10deg); z-index: 2; }
+
+/* --- POST-IT AVEC LE TEXTE DIRECTEMENT DESSUS --- */
+.postit-container {
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(2deg); /* Petite inclinaison naturelle pour le post-it */
+  transition: transform 0.3s ease;
+}
+
+.postit-container:hover {
+  transform: scale(1.03) rotate(0deg);
+}
+
+.contact-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+/* Contenu positionné par-dessus l'image du post-it */
+.postit-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  padding: 1rem;
+}
+
+.contact-text {
+  color: #24132C; /* Texte sombre pour bien contraster sur le post-it */
+  font-size: 1rem;
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+
+.github-link {
+  display: inline-block;
+  background: var(--backinblack);
+  color: var(--mountainheather);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-subtitle);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.github-link:hover {
+  background: #723D51;
+  color: #fff;
+  transform: translateY(-2px);
+}
